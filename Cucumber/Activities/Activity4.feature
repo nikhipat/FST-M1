@@ -1,16 +1,16 @@
 @activity4
-Feature: Activity to test the login
+  Feature: Data driven test without Example
 
-  @loginTest@LoginSuccess
-  Scenario:Successful login with valid details
-    Given the user is on the login page
-    When the use enters the "admin" and "password"
-    And the user clicks on submit button
-    Then Verify the login message as "Welcome Back, admin"
+    @loginTest @loginSuccess
+    Scenario: Testing with correct data from inputs
+      Given the user is on login page
+      When the user enters "admin" and "password"
+      And clicks the submit button
+      Then get the confirmation text and verify message as "Welcome Back, admin"
 
-  @LoginTest@LoginFail
-  Scenario:Login failed with invalid details
-    Given the user is on the login page
-    When the use enters the "admin12" and "password1"
-    And the user clicks on submit button
-    Then Verify the login message as "Invalid Credentials"
+    @loginTest @@loginFail
+    Scenario: Testing with incorrect data from inputs
+      Given the user is on login page
+      When the user enters "admin12" and "password12"
+      And clicks the submit button
+      Then get the confirmation text and verify message as "Invalid Credentials"

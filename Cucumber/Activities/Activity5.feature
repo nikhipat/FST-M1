@@ -1,15 +1,13 @@
 @activity5
-Feature: Activity to test the login
+Feature: Data driven test with Example
 
-  @loginTest@LoginSuccess
-  Scenario:Successful login with valid details
-    Given the user is on the login page
-    When the use enters the "<username>" and "<password>"
-    And the user clicks on submit button
-    Then Verify the login message as "<msg>"
+  Scenario Outline: Testing with Data from Scenario
+    Given User is on Login page
+    When User enters "<Usernames>" and "<Passwords>"
+    Then Read the page title and confirmation message
+    And Close the Browser
 
     Examples:
-    |username|password|msg                    |
-    |   admin     |  password      |      Welcome Back, admin                 |
-    |     admin12   | password12       |      Invalid Credentials                 |
-
+      | Usernames | Passwords |
+      | admin     | password  |
+      | adminUser | Password  |
