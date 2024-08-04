@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase xmlns:con="http://eviware.com/soapui/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="bbeb226d-7d6c-45d3-b225-e90f5057d609" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="Test Case" searchProperties="true" timeout="0">
+  <con:settings id="cc2345a3-2374-4c13-9716-10bf1c0dd99e">
+    <con:setting id="IncludeOverview">true</con:setting>
+    <con:setting id="IncludeResults">true</con:setting>
+    <con:setting id="FlowLayout">false</con:setting>
+    <con:setting id="ErrorDetails">true</con:setting>
+    <con:setting id="IncludeCoverage">true</con:setting>
+    <con:setting id="GeneratableJUnitReport@Style">Multiple Pages</con:setting>
+    <con:setting id="GeneratableJUnitReport@Folder">C:\Users\NikhilPatil\IdeaProjects\FST_API</con:setting>
+    <con:setting id="GeneratableJUnitReport@Modify">false</con:setting>
+    <con:setting id="bbeb226d-7d6c-45d3-b225-e90f5057d609fileName">Test-Case</con:setting>
+  </con:settings>
+  <con:testStep type="restrequest" name="GET" id="423e4e4b-ae4b-450c-8aae-9b7d7c3adf45">
+    <con:settings/>
+    <con:config service="https://api.github.com" resourcePath="/user/emails" methodName="Emails" xsi:type="con:RestRequestStep">
+      <con:restRequest name="GET" id="dcafd8cc-373e-461c-bd41-18b3a36e6952" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://api.github.com</con:endpoint>
+        <con:request/>
+        <con:originalUri>https://api.github.com/user/emails</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="4c68235d-bc8e-4d99-bd97-538ef52da704" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>nik_GIT</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="POST" id="aec10678-c2a5-4e3f-8ded-ba9ae5919418">
+    <con:settings/>
+    <con:config service="https://api.github.com" resourcePath="/user/keys" methodName="Keys" xsi:type="con:RestRequestStep">
+      <con:restRequest name="POST" id="292e3812-05a9-4d32-8a45-aa823384ef0a" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://api.github.com</con:endpoint>
+        <con:request>{
+	"title":"TestKeyNik",
+	"key":"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIInOktZgPRIBnk2ZvC8OBZ8OPA1u3XJjvLmLvAfaGoac"
+}</con:request>
+        <con:originalUri>https://api.github.com/user/keys</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="1d03c681-6957-4d0d-ab44-b63250033ee9" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>201</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>nik_GIT</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="transfer" name="Property Transfer" id="04388a18-7537-4c92-a18b-b60431be27e3">
+    <con:settings/>
+    <con:config xsi:type="con:PropertyTransfersStep">
+      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+        <con:name>id</con:name>
+        <con:sourceType>Response</con:sourceType>
+        <con:sourceStep>POST</con:sourceStep>
+        <con:sourcePath>$['id']</con:sourcePath>
+        <con:targetType>keyId</con:targetType>
+        <con:targetStep>Delete</con:targetStep>
+        <con:targetPath/>
+        <con:type>JSONPATH</con:type>
+        <con:targetTransferType>JSONPATH</con:targetTransferType>
+        <con:upgraded>true</con:upgraded>
+      </con:transfers>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="Delete" id="27bcbccb-2897-4d6b-ab83-6d022da30e61">
+    <con:settings/>
+    <con:config service="https://api.github.com" resourcePath="/user/keys/{keyId}" methodName="KeyId" xsi:type="con:RestRequestStep">
+      <con:restRequest name="Delete" id="b8ff1fd5-f105-4745-a3f5-a0beb62e466b" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://api.github.com</con:endpoint>
+        <con:request/>
+        <con:originalUri>https://api.github.com/user/keys/keyId</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="b8047db5-7de3-4b5d-bd70-459750c10fad" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>204</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>nik_GIT</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="keyId" value="100674725"/>
+        </con:parameters>
+        <con:parameterOrder>
+          <con:entry>keyId</con:entry>
+        </con:parameterOrder>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

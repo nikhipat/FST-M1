@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource xmlns:con="http://eviware.com/soapui/config" name="Keys" path="/user/keys" id="f32d6422-f272-4158-8677-5a239f8e6750">
+  <con:settings id="f46e8d50-6edb-48f8-be2f-c28fcd242968">
+    <con:setting id="f32d6422-f272-4158-8677-5a239f8e6750fileName">Keys</con:setting>
+  </con:settings>
+  <con:parameters/>
+  <con:method name="Keys" id="cb072585-6c57-4054-a168-0c65558a3911" method="POST">
+    <con:settings/>
+    <con:parameters/>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/json</con:mediaType>
+      <con:params/>
+    </con:representation>
+    <con:representation type="FAULT">
+      <con:mediaType>application/json; charset=utf-8</con:mediaType>
+      <con:status>400 422</con:status>
+      <con:params/>
+      <con:element xmlns:keys="https://api.github.com/user/keys">keys:Fault</con:element>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json; charset=utf-8</con:mediaType>
+      <con:status>201</con:status>
+      <con:params/>
+      <con:element xmlns:keys="https://api.github.com/user/keys">keys:Response</con:element>
+    </con:representation>
+    <con:request name="Request 1" id="292e3812-05a9-4d32-8a45-aa823384ef0a" mediaType="application/json">
+      <con:settings/>
+      <con:endpoint>https://api.github.com</con:endpoint>
+      <con:parameters/>
+    </con:request>
+  </con:method>
+</con:resource>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite xmlns:con="http://eviware.com/soapui/config" id="88a6dbb0-377b-4fe9-b39a-4ceba4062a57" name="https://api.github.com Test Suite">
+  <con:settings id="cdc63d34-2d55-439a-ba13-657b2698532d">
+    <con:setting id="88a6dbb0-377b-4fe9-b39a-4ceba4062a57fileName">https%3A%2F%2Fapi.github.com-Test-Suite</con:setting>
+  </con:settings>
+  <con:runType>SEQUENTIAL</con:runType>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testSuite>

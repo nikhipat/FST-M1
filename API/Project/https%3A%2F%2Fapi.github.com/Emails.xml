@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource xmlns:con="http://eviware.com/soapui/config" name="Emails" path="/user/emails" id="2932d24e-14d1-4a3d-8f12-0f6ba84892b4">
+  <con:settings id="56d3d28c-da7e-49d1-a62d-55193b73f81d">
+    <con:setting id="2932d24e-14d1-4a3d-8f12-0f6ba84892b4fileName">Emails</con:setting>
+  </con:settings>
+  <con:parameters/>
+  <con:method name="Emails" id="84ba7519-28e7-47dc-9e37-214f02b3ff59" method="GET">
+    <con:settings/>
+    <con:parameters/>
+    <con:representation type="FAULT">
+      <con:mediaType>application/json; charset=utf-8</con:mediaType>
+      <con:status>401</con:status>
+      <con:params/>
+      <con:element xmlns:ema="https://api.github.com/user/emails">ema:Fault</con:element>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json; charset=utf-8</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:element>Response</con:element>
+    </con:representation>
+    <con:request name="Request 1" id="dcafd8cc-373e-461c-bd41-18b3a36e6952" mediaType="application/json">
+      <con:settings/>
+      <con:endpoint>https://api.github.com</con:endpoint>
+      <con:parameters/>
+    </con:request>
+  </con:method>
+</con:resource>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource xmlns:con="http://eviware.com/soapui/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="KeyId" path="/user/keys/{keyId}" id="b16f6f25-03a8-42ca-98af-65231d49c90f">
+  <con:settings id="a9fe506c-a575-4a63-a3df-64e5c2690d3a">
+    <con:setting id="b16f6f25-03a8-42ca-98af-65231d49c90ffileName">KeyId</con:setting>
+  </con:settings>
+  <con:parameters/>
+  <con:method name="KeyId" id="b17d5d49-e7e8-452c-8445-fd6685facd37" method="DELETE">
+    <con:settings/>
+    <con:parameters>
+      <con:parameter required="true">
+        <con:name>keyId</con:name>
+        <con:value>keyId</con:value>
+        <con:style>TEMPLATE</con:style>
+        <con:default>keyId</con:default>
+        <con:path xsi:nil="true"/>
+        <con:description xsi:nil="true"/>
+      </con:parameter>
+    </con:parameters>
+    <con:representation type="FAULT">
+      <con:mediaType>application/json; charset=utf-8</con:mediaType>
+      <con:status>404</con:status>
+      <con:params/>
+      <con:element xmlns:key="https://api.github.com/user/keys/keyId">key:Fault</con:element>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/json</con:mediaType>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType xsi:nil="true"/>
+      <con:status>204</con:status>
+      <con:params/>
+      <con:element>data</con:element>
+    </con:representation>
+    <con:request name="Request 1" id="b8ff1fd5-f105-4745-a3f5-a0beb62e466b" mediaType="application/json">
+      <con:settings/>
+      <con:endpoint>https://api.github.com</con:endpoint>
+      <con:parameters>
+        <con:entry key="keyId" value="keyId"/>
+      </con:parameters>
+      <con:parameterOrder>
+        <con:entry>keyId</con:entry>
+      </con:parameterOrder>
+    </con:request>
+  </con:method>
+</con:resource>
